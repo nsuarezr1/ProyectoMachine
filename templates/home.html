@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fases CRISP-ML - Emisiones CO₂</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/negocio.css') }}">
+        
+
+</head>
+<body>
+    <div class="container">
+        <h1>Modelo Predictivo de emsiones de CO<sub>2</sub> en Colombia</h1>
+        
+        <h2>Fases del Proyecto</h2>
+        <h2>1. Entendimiento del Negocio y los Datos</h2>
+        <p><strong>Objetivo:</strong> predecir emisiones de CO₂ por categoría IPCC 2006 a lo largo del tiempo, para apoyar decisiones climáticas y ambientales.</p>
+        <ul>
+            <li><strong>Preguntas clave:</strong> ¿Qué sectores generan más CO₂? ¿Cómo varían sus emisiones con el tiempo?</li>
+            <li><strong>Evaluación de datos:</strong> datos históricos por año y categoría IPCC, con valores en Gg de CO₂.</li>
+            <li><strong>Viabilidad:</strong> se cuenta con datos suficientes, aunque algunas categorías tienen valores nulos o faltantes.</li>
+        </ul>
+
+        <h2>2. Ingeniería de Datos</h2>
+        <ul>
+            <li><strong>Selección:</strong> se usan las columnas Año, Categoría IPCC 2006 y CO2 - Emisiones en Gg.</li>
+            <li><strong>Limpieza:</strong> conversión de texto a números, eliminación de valores nulos.</li>
+            <li><strong>Transformación:</strong> codificación de categorías y normalización para facilitar el modelado.</li>
+            <li><strong>Documentación:</strong> todos los pasos de limpieza y transformación quedan registrados en scripts reproducibles.</li>
+        </ul>
+
+        <h2>3. Ingeniería del Modelo</h2>
+        <ul>
+            <li><strong>Algoritmo:</strong> se emplea una regresión lineal para predecir emisiones según el año y la categoría.</li>
+            <li><strong>Entrenamiento:</strong> se entrena el modelo con datos limpios de años anteriores a 2023.</li>
+            <li><strong>Ajuste:</strong> no se requieren hiperparámetros complejos; el enfoque es simple pero explicativo.</li>
+            <li><strong>Validación:</strong> se reserva un subconjunto de datos para pruebas y validación con métricas como MAE y R².</li>
+        </ul>
+    </div>
+</body>
+</html>
