@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    
+    <h1>Fases del Proyecto de CO2</h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/negocio.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-sky-100 to-green-100 font-sans text-gray-800">
+
+    <!-- NAV -->
+    <nav class="bg-teal-800 text-black p-4">
+        <div class="container mx-auto flex justify-between">
+            <span class="font-semibold text-xl"><i class="fas fa-leaf"></i> CO₂ Inteligente</span>
+            <div class="space-x-4 text-sm">
+                <a href="/" class="hover:text-teal-200">Inicio</a>
+                <a href="/ingenieria-datos" class="hover:text-teal-200">Ingeniería de Datos</a>
+                <a href="/ingenieria-modelo" class="hover:text-teal-200">Modelo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-10 mt-10">
+        <h1 class="text-2xl font-bold text-teal-700 mb-6">1. Entendimiento del Negocio y los Datos</h1>
+        <p class="mb-4"><strong>Objetivo:</strong> Predecir emisiones de CO₂ por categoría IPCC 2006 a lo largo del tiempo para apoyar decisiones sostenibles.</p>
+        <ul class="list-disc list-inside space-y-2">
+            <li><strong>Preguntas clave:</strong> ¿Qué sectores generan más CO₂? ¿Cómo evolucionan sus emisiones?</li>
+            <li><strong>Evaluación:</strong> Datos desde 1990 por categoría, con emisiones en Gg.</li>
+            <li><strong>Viabilidad:</strong> Datos completos en su mayoría.</li>
+        </ul>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-800 text-white text-center py-4 mt-12 text-sm">
+        © 2025 CO₂ Predict. Proyecto Danna Gonzalez-Nicolas Suarez.
+    </footer>
+</body>
+</html>

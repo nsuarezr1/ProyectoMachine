@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import regex as re # pip install regex
+import regex as re 
 from datetime import datetime
 import LinearRegresssion
 
@@ -8,8 +8,17 @@ app = Flask(__name__)
 modelo_path = "modelo_emisiones.pkl"
 
 @app.route("/")
-def index():
-    return render_template("home.html")
+def inicio():
+    return render_template("inicio.html")
+
+@app.route("/ingenieria-datos")
+def ingenieria_datos():
+    return render_template("ingenieria_datos.html")
+
+@app.route("/ingenieria-modelo")
+def ingenieria_modelo():
+    return render_template("ingenieria_modelo.html")
+
 
 @app.route("/predecir", methods=["POST"])
 def predecir():

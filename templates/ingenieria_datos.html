@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingeniería de Datos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/negocio.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-sky-100 to-green-100 font-sans text-gray-800">
+
+    <nav class="bg-teal-800 text-bkack p-4">
+        <div class="container mx-auto flex justify-between">
+            <span class="font-semibold text-xl">CO₂ Inteligente</span>
+            <div class="space-x-4 text-sm">
+                <a href="/" class="hover:text-teal-200">Inicio</a>
+                <a href="/ingenieria-datos" class="hover:text-teal-200">Ingeniería de Datos</a>
+                <a href="/ingenieria-modelo" class="hover:text-teal-200">Modelo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-10 mt-10">
+        <h1 class="text-2xl font-bold text-teal-700 mb-6">2. Ingeniería de Datos</h1>
+        <ul class="list-disc list-inside space-y-2">
+            <li><strong>Selección:</strong> Año, Categoría IPCC, y CO₂ - Emisiones en Gg.</li>
+            <li><strong>Limpieza:</strong> Conversión de texto numérico, eliminación de nulos.</li>
+            <li><strong>Transformación:</strong> Codificación OneHot, normalización.</li>
+            <li><strong>Documentación:</strong> Registro de transformaciones en scripts reproducibles.</li>
+        </ul>
+    </main>
+
+    <footer class="bg-teal-800 text-white text-center py-4 mt-12 text-sm">
+        © 2025 CO₂ Predict. Proyecto CRISP-ML.
+    </footer>
+</body>
+</html>
