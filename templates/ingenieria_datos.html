@@ -23,10 +23,38 @@
     <main class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-10 mt-10">
         <h1 class="text-2xl font-bold text-teal-700 mb-6">2. Ingeniería de Datos</h1>
         <ul class="list-disc list-inside space-y-2">
-            <li><strong>Selección:</strong> Año, Categoría IPCC, y CO₂ - Emisiones en Gg.</li>
-            <li><strong>Limpieza:</strong> Conversión de texto numérico, eliminación de nulos.</li>
-            <li><strong>Transformación:</strong> Codificación OneHot, normalización.</li>
-            <li><strong>Documentación:</strong> Registro de transformaciones en scripts reproducibles.</li>
+            <strong>SELECCIÓN:</strong>
+            <li>El dataset principal consiste en el inventario anual de emisiones de gases de efecto invernadero (CO2, CH4, N2O) reportado bajo las categorías del IPCC para el período 1990-2014.
+                Columnas Relevantes: Las columnas clave para el análisis y modelado incluyen:
+                SI (Año): La variable temporal fundamental.
+                ReportaR (F/N): Indicador de la calidad o tipo de reporte. Se podría considerar filtrar por reportes finales ('F') para mayor confiabilidad.
+                Categorías IPCC 2006: La variable categórica que define el sector de emisión. Es crucial mantener la granularidad de estas categorías para un análisis detallado.</li>
+            <li> CO2_EMISIONES: La variable objetivo principal para muchos análisis relacionados con el cambio climático.</li>
+            <li> CH4_EMISIONES: Es un gas de efecto invernadero con un potencial de calentamiento global diferente al CO2.</li>
+            <li>N2O_EMISIONES: Otro gas de efecto invernadero relevante.</li>
+            <strong>LIMPIEZA:</strong> 
+            <li><strong>Valores faltantes extensos en las columnas de emisiones clave (CO2, CH4, N2O):</strong> Si una fila tiene valores faltantes 
+                para la mayoría o todas las emisiones de los gases principales, podria ser eliminada, especialmente si la imputación no es factible o confiable para esa fila.</li>
+            <li><strong>Gases no relevantes para la pregunta de investigación específica:</strong> Si el análisis va estar centrado únicamente en las emisiones de CO2, las columnas de CH4 y N2O no van a ser necesarias 
+                para esa parte específica del proyecto. Sin embargo, es importante recordar que estos son también gases de efecto invernadero y podrían ser relevantes para un análisis más completo 
+                del impacto climático.</li>
+            <strong>Transformación:</strong> 
+            <li>Variable de Tiempo Lineal: Se puede crear una variable numérica que represente el paso del tiempo por ejemplo asignando valores de 0 a 24 para los años 1990 a 2014 para asi saber que tendencia va tener en los proximos años. 
+                Esta es útil para modelar tendencias lineales.</li>
+            <li>Emisiones Totales por Sector por Año: Sumar las emisiones de los diferentes gases dentro de cada categoría del IPCC por año (también considerando el PCG para una medida más significativa del impacto climático total).</li>
+            <strong>Documentación:</strong> 
+            <li>Selección de Datos:
+
+            Dataset Principal: Inventario anual de emisiones de gases de efecto invernadero (CO2, CH4, N2O) reportado bajo las categorías del IPCC para el período 1990-2014.
+            Columnas Seleccionadas para el Análisis Inicial:</li>
+            <li> (Año): Variable temporal.</li>
+            <li>Reportad (F/N): Tipo de reporte (Final/No final).</li>
+            <li>Categorías IPCC 2006: Categoría del sector de emisión.</li>
+            <li>Emisiones de dióxido de carbono.</li>
+            <li>CH4_EMISIONES: Emisiones de metano.</li>
+            <li>N2O_EMISIONES: Emisiones de óxido nitroso.</li>
+                Justificación de la Selección: Estas columnas se seleccionaron por ser directamente relevantes para el análisis de las tendencias históricas 
+                de las emisiones por sector y gas. La columna "Reportad" se incluyó para evaluar la calidad de los datos y para posible filtrado.</li>
         </ul>
     </main>
 
