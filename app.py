@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import regex as re 
 from datetime import datetime
-import LinearRegresssion
+import RLProyecto
 
 app = Flask(__name__)
 
@@ -19,13 +19,15 @@ def ingenieria_datos():
 def modelo():
     return render_template("modelo.html")
 
+@app.route("/RegresionLineal/", methods=["GET", "POST"])
+def Regresionlineal():
+    calculateResult = None
+    plot_url = RLProyecto.generar_grafica
+    if request.method == "POST":
+        temperatura = float(request.form["temperatura"])
+        calculateResult = RLProyecto.calcularHelados(temperatura)
+    return render_template("RegresionLineal.html", result=calculateResult, plot_url=plot_url)
 
-@app.route("/predecir", methods=["POST"])
-def predecir():
-    anio = int(request.form["anio"])
-    categoria = request.form["categoria"]
-    resultado = LinearRegresssion(modelo_path, anio, categoria)
-    return render_template("index.html", resultado=f"Predicción de CO₂: {resultado} Gg")
 
 if __name__ == "__main__":
     app.run(debug=True)
