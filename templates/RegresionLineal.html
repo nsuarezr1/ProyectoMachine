@@ -26,8 +26,8 @@
     </nav>
     <main class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-8 md:p-10 mt-8 md:mt-10 flex flex-col items-center">
         <header class="text-center mb-6">
-            <h1 class="text-2xl font-bold text-teal-700 mb-2">Predicción Emisiones de CO₂</h1>
-            <p class="text-gray-600">Visualización del modelo de regresión lineal para el sector energético (1990-2014).</p>
+            <h1 class="text-2xl font-bold text-teal-700 mb-2">Predicción Emisiones de CO₂ en el sector de Energía</h1>
+            <p class="text-gray-600">Visualización del modelo de regresión lineal para el sector energético.</p>
         </header>
 
         <section class="mb-6">
@@ -35,19 +35,19 @@
         </section>
 
         <section class="w-full md:w-3/4 lg:w-1/2 mb-6">
-            <form method="post" class="flex flex-col md:flex-row items-center justify-center gap-4">
-                <div class="mb-2 md:mb-0">
+            <form method="post" class="flex flex-col items-center justify-center gap-4">
+                <div class="flex flex-col items-start w-full mb-2">
                     <label for="temperatura" class="block text-gray-700 font-bold mb-1">Año:</label>
-                    <input type="number" name="temperatura" step="1" min="1990" max="2014" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="number" name="temperatura" step="1" min="1990" max="2020" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
-                <button type="submit" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Predecir</button>
+                <button type="submit" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Predecir</button>
             </form>
         </section>
 
         {% if result is not none %}
         <section class="text-center mt-6">
             <h2 class="text-xl font-semibold text-teal-700">Predicción para el año ingresado:</h2>
-            <p class="text-lg">{{ result }}</p>
+            <p class="text-lg">{{ result }} Co2</p>
         </section>
         {% endif %}
     </main>
