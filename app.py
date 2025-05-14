@@ -15,9 +15,9 @@ def inicio():
 def ingenieria_datos():
     return render_template("ingenieria_datos.html")
 
-@app.route("/ingenieria-modelo")
-def ingenieria_modelo():
-    return render_template("ingenieria_modelo.html")
+@app.route("/modelo")
+def modelo():
+    return render_template("modelo.html")
 
 
 @app.route("/predecir", methods=["POST"])
