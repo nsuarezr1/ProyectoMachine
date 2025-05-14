@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Evaulación Modelo Regresión Lineal</title>
+    <title>Predicción Emisiones CO₂</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/negocio.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,7 +14,7 @@
 </head>
 <body class="bg-gradient-to-br from-sky-100 to-green-100 font-sans text-gray-800">
     <nav class="bg-teal-800 text-black p-4">
-        <div class="container mx-auto flex justify-between">
+        <div class="container mx-auto flex justify-between items-center">
             <span class="font-semibold text-xl">CO₂ Inteligente</span>
             <div class="space-x-4 text-sm">
                 <a href="/" class="hover:text-teal-200">Inicio</a>
@@ -24,33 +24,35 @@
             </div>
         </div>
     </nav>
-    <main class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-10 mt-10">
-        <header>
-            <h1>Regresión Lineal: Predicción de Helados Vendidos</h1>
-            <p>Objetivo: Predecir la cantidad de helados vendidos en función de la temperatura.</p>
-            <p>Dataset: El archivo <strong>TemperaturayHelados.csv</strong> contiene datos de temperaturas y unidades vendidas.</p>
+    <main class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-8 md:p-10 mt-8 md:mt-10 flex flex-col items-center">
+        <header class="text-center mb-6">
+            <h1 class="text-2xl font-bold text-teal-700 mb-2">Predicción Emisiones de CO₂</h1>
+            <p class="text-gray-600">Visualización del modelo de regresión lineal para el sector energético (1990-2014).</p>
         </header>
 
-        <section>
-            <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfica de regresión">
+        <section class="mb-6">
+            <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfica de regresión" class="max-w-full h-auto rounded-md shadow-md">
         </section>
 
-        <section>
-            <form method="post">
-                <label for="temperatura">Temperatura (°C):</label>
-                <input type="number" name="temperatura" step="0.1" required>
-                <button type="submit">Predecir</button>
+        <section class="w-full md:w-3/4 lg:w-1/2 mb-6">
+            <form method="post" class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <div class="mb-2 md:mb-0">
+                    <label for="temperatura" class="block text-gray-700 font-bold mb-1">Año:</label>
+                    <input type="number" name="temperatura" step="1" min="1990" max="2014" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                <button type="submit" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Predecir</button>
             </form>
         </section>
 
         {% if result is not none %}
-        <section>
-            <h2>Helados vendidos estimados: {{ result }}</h2>
+        <section class="text-center mt-6">
+            <h2 class="text-xl font-semibold text-teal-700">Predicción para el año ingresado:</h2>
+            <p class="text-lg">{{ result }}</p>
         </section>
         {% endif %}
     </main>
 
-    <footer class="bg-teal-800 text-white text-center py-4 mt-12 text-sm">
+    <footer class="bg-teal-800 text-white text-center py-4 mt-8 text-sm">
         © 2025 CO₂ Predict. Proyecto Danna Gonzalez-Nicolas Suarez.
     </footer>
 </body>

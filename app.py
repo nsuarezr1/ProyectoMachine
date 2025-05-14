@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request
-import regex as re 
+import regex as re
 from datetime import datetime
 import RLProyecto
 
 app = Flask(__name__)
-
 modelo_path = "modelo_emisiones.pkl"
 
 @app.route("/")
@@ -22,12 +21,11 @@ def modelo():
 @app.route("/RegresionLineal/", methods=["GET", "POST"])
 def Regresionlineal():
     calculateResult = None
-    plot_url = RLProyecto.generar_grafica
+    plot_url = RLProyecto.generar_grafica()  # Llama a la función para obtener la URL
     if request.method == "POST":
         temperatura = float(request.form["temperatura"])
         calculateResult = RLProyecto.calcularHelados(temperatura)
     return render_template("RegresionLineal.html", result=calculateResult, plot_url=plot_url)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
