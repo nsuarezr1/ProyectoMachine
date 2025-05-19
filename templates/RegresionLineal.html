@@ -49,10 +49,10 @@
             </form>
         </section>
 
-        {% if result is not none %}
+        {% if result_energia is not none %}
         <section class="text-center mt-6">
             <h2 class="text-xl font-semibold text-teal-700">Predicción para el año ingresado:</h2>
-            <p class="text-lg">{{ result }} Co<sub>2</sub></p>
+            <p class="text-lg">{{ result_energia }} Co<sub>2</sub></p>
 
         </section>
         {% endif %}
@@ -81,10 +81,10 @@
             </form>
         </section>
 
-        {% if result is not none %}
+        {% if result_procesos is not none %}
         <section class="text-center mt-6">
             <h2 class="text-xl font-semibold text-teal-700">Predicción para el año ingresado:</h2>
-            <p class="text-lg">{{ result }} Co<sub>2</sub></p>
+            <p class="text-lg">{{ result_procesos }} Co<sub>2</sub></p>
 
         </section>
         {% endif %}

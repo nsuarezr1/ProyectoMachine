@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request
-import regex as re
-from datetime import datetime
 import RegresionProyecto
 
 app = Flask(__name__)
