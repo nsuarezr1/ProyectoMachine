@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Predicción Emisiones CO₂</title>
@@ -12,6 +13,7 @@
     <meta http-equiv="Expires" content="0" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body class="bg-gradient-to-br from-sky-100 to-green-100 font-sans text-gray-800">
     <nav class="bg-teal-800 text-black p-4">
         <div class="container mx-auto flex justify-between items-center">
@@ -31,23 +33,59 @@
         </header>
 
         <section class="mb-6">
-            <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfica de regresión" class="max-w-full h-auto rounded-md shadow-md">
+            <img src="data:image/png;base64,{{ plot_url_energia }}" alt="Gráfica de Emisiones de CO2"> alt="Gráfica de
+            regresión" class="max-w-full h-auto rounded-md shadow-md">
         </section>
 
         <section class="w-full md:w-3/4 lg:w-1/2 mb-6">
             <form method="post" class="flex flex-col items-center justify-center gap-4">
                 <div class="flex flex-col items-start w-full mb-2">
-                    <label for="temperatura" class="block text-gray-700 font-bold mb-1">Año:</label>
-                    <input type="number" name="temperatura" step="1" min="1990" max="2025" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <label for="co_energia" class="block text-gray-700 font-bold mb-1">Año:</label>
+                    <input type="number" name="co_energia" step="1" min="1990" max="2025" required
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
-                <button type="submit" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Predecir</button>
+                <button type="submit"
+                    class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Predecir</button>
             </form>
         </section>
 
         {% if result is not none %}
         <section class="text-center mt-6">
             <h2 class="text-xl font-semibold text-teal-700">Predicción para el año ingresado:</h2>
-            <p class="text-lg">{{ result }} Co2</p>
+            <p class="text-lg">{{ result }} Co<sub>2</sub></p>
+
+        </section>
+        {% endif %}
+        <br><br>
+        <header class="text-center mb-6">
+            <h1 class="text-2xl font-bold text-teal-700 mb-2">Predicción Emisiones de CO₂ en el sector de Procesos
+                Industriales</h1>
+            <p class="text-gray-600">Visualización del modelo de regresión lineal para el sector del Procesamiento
+                Industrial</p>
+        </header>
+
+        <section class="mb-6">
+            <img src="data:image/png;base64,{{ plot_url_procesos }}" alt="Gráfica de regresión"
+                class="max-w-full h-auto rounded-md shadow-md">
+        </section>
+
+        <section class="w-full md:w-3/4 lg:w-1/2 mb-6">
+            <form method="post" class="flex flex-col items-center justify-center gap-4">
+                <div class="flex flex-col items-start w-full mb-2">
+                    <label for="co_procesos" class="block text-gray-700 font-bold mb-1">Año:</label>
+                    <input type="number" name="co_procesos" step="1" min="1990" max="2025" required
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                <button type="submit"
+                    class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Predecir</button>
+            </form>
+        </section>
+
+        {% if result is not none %}
+        <section class="text-center mt-6">
+            <h2 class="text-xl font-semibold text-teal-700">Predicción para el año ingresado:</h2>
+            <p class="text-lg">{{ result }} Co<sub>2</sub></p>
+
         </section>
         {% endif %}
     </main>
@@ -56,4 +94,5 @@
         © 2025 CO₂ Predict. Proyecto Danna Gonzalez-Nicolas Suarez.
     </footer>
 </body>
+
 </html>
